@@ -1,0 +1,97 @@
+
+body{
+    background-color: antiquewhite!important;
+}
+#styled-table{
+    border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        width: 50%;
+        padding: 20px;;
+        border-radius: 20px;;
+        border-collapse: separate;
+            border-spacing: 0;
+}
+#styled-table thead{
+    margin-top: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+#styled-table thead th {
+    background-color: #494b4a;
+    color: #ffffff;
+    text-align: left;
+    border-bottom: 1px solid rgb(90, 78, 78);
+    font-size: 20px;
+}
+#styled-table th,
+#styled-table td {
+    padding: 12px 15px;
+}
+#styled-table tbody tr{
+    border-bottom: 1px solid rgb(90, 78, 78)!important;
+    padding-bottom: 5px;;
+}
+thead  {
+background: black;
+}
+thead th {
+    padding: 10px;
+    font-size: 15px;;
+}
+tr:hover {
+    background-color: rgb(49, 49, 49);
+}
+.jusmainss{
+    width: 50%;
+    display: block;
+}
+.jusmainss a{
+    float: right;;
+}
+.successbtn{
+    margin-top: 10px;;
+}
+.successbtn:hover{
+    background: #0d3249;
+}
+.textsize{
+    font-size: 24px;;
+    float: left;
+}
+.textsssl{
+    float: left;
+    font-style: italic;
+}
+tbody tr td{
+    padding: 10px;
+    border-bottom: 1px solid rgb(52, 61, 52);
+}
+.svgcss svg{
+    display:inline;
+}
+.svgcss:hover, .svgcss svg:hover {
+    display: inline;
+    color: #5b5d5e;
+    cursor: pointer;
+}
+.link:hover{
+    color: #4936b6;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.c-dhzjXW-idWqJbk-css {
+    text-align: left;
+}
+
+.linkmain :hover{
+text-decoration: underline!important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
