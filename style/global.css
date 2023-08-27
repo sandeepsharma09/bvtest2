@@ -91,7 +91,12 @@ tbody tr td{
 .linkmain :hover{
 text-decoration: underline!important;
 }
-
+.c-dhzjXW-ilkBNdM-css .c-dhzjXW img,.c-dhzjXW-ijwreRu-css img{
+    display: none!important;
+}
+.c-dUNmZW {
+    background-color: #6e56cf!important;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
