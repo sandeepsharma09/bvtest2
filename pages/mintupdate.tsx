@@ -24,7 +24,7 @@ const Home: NextPage = () => {
 // console.log('working');
 
 
-
+  const [arrayvalue , arrayVlaue]= useState({});
 	const [file, setFile] = useState<File | null>(null)
     const [percent, setPercent] = useState("");
       const [myCar, setMyCar] = useState('');
@@ -56,21 +56,32 @@ const Home: NextPage = () => {
 });
 // "0x22bf39DB3AddE6DB848B20BEE9798009Da03820E"
 // const tomintcontract = 
+console.log('arrayvalue', arrayvalue);
+
+
     const { contract } = useContract(contractName);
 console.log('contract', contract);
-const metadata = {
+const metadata = {  
     "name": name,
     "description": description,
     "image": image,
     "external_url": "",
-    "attributes": [
-        {
-            "trait_type": "Membership",
-            "value": "bluevinci"
-        }
-    ]
+    "attributes": arrayvalue
 };
 
+
+// [
+//         {
+//             "trait_type": "Membership",
+//             "value": "bluevinci"
+//         },
+//         {
+//             "trait_type": "color",
+//             "value": "https://thirdweb.com/goerli/0xc6Adc341f0e2693803021DFc6744DcCe6cab7dab/nfts/4"
+//         }
+//     ]
+
+console.log('metadata',metadata);
     const { mutateAsync: mintTo, isLoading } = useContractWrite(contract, "mintTo")
 
   const call = async () => {
@@ -128,6 +139,8 @@ const call1 = async() =>{
 
 
 useEffect(()=>{
+
+  
 setcontractName(tomintcontract);
 setMyCar(contracttype);
 setRecipient(address);
@@ -160,6 +173,25 @@ call1()
         const uploadToIpfs = async (event: { preventDefault: () => void }) => {
     //name , symbol type
     event.preventDefault();
+
+
+
+var key1:any = document.getElementsByClassName("key1");
+var value1:any = document.getElementsByClassName("value1");
+var arrayi:any[]=[];
+console.log('key1',key1);
+for (var i = 0; i < key1.length; i++) {
+  //ts-ignore
+   var k = key1.item(i).value;
+   //ts-ignore
+   var s = value1.item(i).value;
+  arrayi.push({trait_type:k,value:s});
+}
+// var myJsonString = JSON.stringify(arrayi);
+// console.log(myJsonString);
+arrayVlaue(arrayi);
+// return;
+
 		const uploadUrl = await upload({
 			data: [file],
 			options: {
@@ -192,6 +224,64 @@ console.log('working');
     
   }
   
+///////////////////////new/////////////
+
+
+     const deleteRow = async (ele: any) => {
+    //name , symbol type
+    // event.preventDefault();
+    //ts-ignore
+      ele = 0;
+      
+        // console.log(ele);
+        var table:any = document.getElementById('employee-table');
+        //ts-ignore
+      var rowCount = table.rows.length;
+      if(rowCount <= 1){
+        alert("There is no row available to delete!");
+        return;
+      }
+      if(ele){
+        //delete specific row
+        ele.parentNode.parentNode.remove();
+      }
+      else{
+        //delete last row
+        //ts-ignore
+        table.deleteRow(rowCount-1);
+      }
+
+       }
+
+       const addNewRow = async (event: { preventDefault: () => void }) => {
+    //name , symbol type
+    event.preventDefault();
+
+        console.log(4);
+         var table:any = document.getElementById("employee-table");
+         //ts-ignore
+      var rowCount = table.rows.length;
+      //ts-ignore
+      var cellCount = table.rows[0].cells.length;
+      //ts-ignore
+      var row = table.insertRow(rowCount);
+      for(var i =0; i < cellCount; i++){
+        var cell = row.insertCell(i);
+        if(i < cellCount-1){
+          cell.innerHTML='<input class="key1"  type="text"  required/>';
+        }
+        else{
+          // cell.innerHTML = '<input type="button" value="delete" onClick={deleteRow(e.target)} />';
+           cell.innerHTML='<input class="value1"  type="text" required />';
+        }
+      }
+
+       }
+
+
+
+
+
 
 	return (
          <Layout>
@@ -368,7 +458,23 @@ console.log('working');
       <FormLabel>Collection Description</FormLabel>
       <Textarea placeholder='Enter Collection Description' value={description}
           onChange={(e) => setDescription(e.target.value)} mb='10px'/>
+{/* ///////////////////////////start///////////////////// */}
+  <button type='button' onClick={addNewRow}>Add New Row   </button>
+  <button type='button'  onClick={deleteRow}>Delete Row  </button>
+      
+  <table id="employee-table">
+        <tr>
+          <th>Key
+          </th>
+          <th>Value
+          </th>
+     
+          {/* <th>Action
+          </th> */}
+        </tr>
+      </table>
 
+{/* ///////////////////end/////////////////////// */}
 <Button type="submit"
                 css={{
                   minWidth: 100,
