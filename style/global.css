@@ -144,6 +144,9 @@ min-width: unset!important;
             background-color: unset !important;
 }
 
+.chakra-stack{
+    min-width: 450px !important;
+}
 
 @tailwind base;
 @tailwind components;
