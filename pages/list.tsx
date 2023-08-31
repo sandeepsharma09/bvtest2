@@ -140,7 +140,7 @@ const msg =  'msg';
       >   
 
 
-<Heading  fontSize='20px'>
+<Heading  fontSize='22px'>
 Contracts / Collection              </Heading>
 
 
@@ -208,12 +208,12 @@ countries.map((country: { id: Key | null | undefined; contract: string | number 
         
         </td>
         <td className="chainmain"> 
-         <Link className="linkmain link hover" target="_blank"  href={'https://goerli.etherscan.io/address/'+country.contract}>
+         <Link className="linkmain link" target="_blank"  href={'https://goerli.etherscan.io/address/'+country.contract}>
         <img src="https://15065ae3c21e0bff07eaf80b713a6ef0.ipfscdn.io/ipfs/bafybeigzgztdmt3qdt52wuhyrrvpqp5qt4t2uja23wmfhsccqt332ek7da/ethereum/512.png" width={20} /> Goerli
         </Link>
         </td>
         <td>
-          <Link className="linkmain link hover" style={{ color:'#6e56cf!important'}} href={'mintupdate?c='+country.contract+'&t='+country.type}>
+          <Link className="linkmain link link hover" style={{ color:'#6e56cf!important'}} href={'mintupdate?c='+country.contract+'&t='+country.type}>
             Mint
             </Link> &nbsp;&nbsp;
 
@@ -237,6 +237,18 @@ countries.map((country: { id: Key | null | undefined; contract: string | number 
     </tr>
      
 }
+
+
+
+
+{countries.length ? 
+(<div>  </div>)
+:(<tr key={1}>
+        <td colSpan={10}>No contracts available to display</td>
+
+    </tr>)}
+
+
       </tbody>
     </Table>
 </TableContainer>
