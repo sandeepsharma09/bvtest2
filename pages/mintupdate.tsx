@@ -11,7 +11,7 @@ import { ConnectWallet, useAddress, useSDK , useContract , useContractRead,useCo
 import { AiOutlineClose, AiOutlineCloudUpload } from "react-icons/ai";
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Center, FormControl, FormLabel, Input, Select, Stack, Textarea } from '@chakra-ui/react'
+import { Center, FormControl, FormLabel, Heading, Input, Select, Stack, Textarea } from '@chakra-ui/react'
 
 const Home: NextPage = () => {
 
@@ -268,11 +268,11 @@ console.log('working');
       for(var i =0; i < cellCount; i++){
         var cell = row.insertCell(i);
         if(i < cellCount-1){
-          cell.innerHTML='<input class="key1"  type="text"  required/>';
+          cell.innerHTML='<input class="key1"  type="text" placeholder="Enter Key"  required/>';
         }
         else{
           // cell.innerHTML = '<input type="button" value="delete" onClick={deleteRow(e.target)} />';
-           cell.innerHTML='<input class="value1"  type="text" required />';
+           cell.innerHTML='<input class="value1" placeholder="Enter Value"  type="text" required />';
         }
       }
 
@@ -285,13 +285,20 @@ console.log('working');
 
 	return (
          <Layout>
-       <Center  mt='200px' color=''>
-      <Flex
-        direction="column"
-      align="start"
+       <Center  mt='' color=''>
+       <Flex
+      direction="column"
+      align="center"
 
-      css={{ mt: '100px', mb: "4px", textAlign: 'start' }}
-      >
+      css={{ mt:"100px" , mb: "4px", textAlign: 'start' }}
+      >   
+
+
+<Heading  fontSize='22px'>
+Minting              </Heading>
+
+
+        
        {/* <Link href="list">
 
 <Button
@@ -456,16 +463,16 @@ console.log('working');
           onChange={(e) => set_tokenId(e.target.value)} mb='10px'/>
 
       <FormLabel>Collection Description</FormLabel>
-      <Textarea placeholder='Enter Collection Description' value={description}
+      <Textarea rows={4} placeholder='Enter Collection Description' value={description}
           onChange={(e) => setDescription(e.target.value)} mb='10px'/>
 {/* ///////////////////////////start///////////////////// */}
-<p>Attributes</p>
+<FormLabel>Attributes</FormLabel>
 <div className='inlinetable'>
-  <button className='inlinetable btton' type='button' onClick={addNewRow}>Add New Row   </button>
-  <button className='inlinetable btton' type='button'  onClick={deleteRow}>Delete Row  </button>
+  <button className='inlinetable btton' type='button' onClick={addNewRow}>Add New   </button>
+  <button className='inlinetable btton' type='button'  onClick={deleteRow}>Delete  </button>
    </div>   
   <table id="employee-table">
-        <tr>
+        <tr className='d-none'>
           <th>Key
           </th>
           <th>Value

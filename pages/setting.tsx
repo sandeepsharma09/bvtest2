@@ -10,7 +10,7 @@ import { useAccount } from "wagmi";
 import { ConnectWallet, useAddress, useSDK , useContract , useContractRead,useContractWrite  } from "@thirdweb-dev/react";
 import { AiOutlineClose, AiOutlineCloudUpload } from "react-icons/ai";
 import { useRouter } from 'next/router'
-import { Center, FormControl, FormLabel,  Input, Select, Stack, Textarea,Link } from '@chakra-ui/react'
+import { Center, FormControl, FormLabel,  Input, Select, Stack, Textarea,Link, Heading } from '@chakra-ui/react'
 
 const IndexPage: NextPage = () => {
       const tomintcontract:any = useRouter()?.query?.c ?? "noget";
@@ -126,13 +126,17 @@ console.log('working');
   
   return (
     <Layout>
-      <Center  mt='200px' color=''>
-      <Flex
-        direction="column"
-      align="start"
+      <Center   color=''>
+        <Flex
+      direction="column"
+      align="center"
 
-      css={{ mt: '100px', mb: "4px", textAlign: 'start' }}
-      >
+      css={{ mt:"100px" , mb: "4px", textAlign: 'start' }}
+      >   
+
+
+<Heading  fontSize='22px'>
+Setting              </Heading>
 
 
         {/* <Link href="list">

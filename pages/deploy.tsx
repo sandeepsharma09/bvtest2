@@ -9,7 +9,7 @@ import { ChainId, ThirdwebProvider , useContract , ConnectWallet, useAddress, us
 import { useAccount } from "wagmi";
 const activeChain = "mumbai"; 
 import supabase from "../config/supabaseClient"
-import { Center, Square, Circle } from '@chakra-ui/react'
+import { Center, Square, Circle, Link } from '@chakra-ui/react'
 import { Stack, HStack, VStack } from '@chakra-ui/react'
 import { Textarea } from '@chakra-ui/react'
 import { Heading } from '@chakra-ui/react'
@@ -120,16 +120,20 @@ const msg =  'msg';
          
     <Layout>
 
-<Center  mt='200px' color=''>
+<Center   color=''>
+
+ <Flex
+      direction="column"
+      align="center"
+
+      css={{ mt:"100px" , mb: "4px", textAlign: 'start' }}
+      >   
 
 
-
-
-      <Flex
-        direction="column"
-      >
+<Heading  fontSize='22px'>
+Deploy Collection         </Heading>
       
-      <Heading size='lg' fontSize='30px'>Deploy Collection</Heading>
+      {/* <Heading size='lg' fontSize='30px'>Deploy Collection</Heading> */}
 
     <form onSubmit={handleSubmit} >
       <FormControl py="50px">
@@ -151,7 +155,7 @@ const msg =  'msg';
           onChange={(e) => setSymbol(e.target.value)} mb='10px'/>
 
       <FormLabel>Collection Description</FormLabel>
-      <Textarea placeholder='Enter Collection Description' value={recipient}
+      <Textarea  rows={4} placeholder='Enter Collection Description' value={recipient}
           onChange={(e) => setRecipient(e.target.value)} mb='10px'/>
 
 <Button type="submit"
@@ -168,6 +172,13 @@ const msg =  'msg';
 </FormControl>
    </form>
 
+      <div>
+       <p> Note  -  </p>
+
+  <p>We use Thirdweb Contracts for for creating Collections. The contracts are open-source, audited, optimised to keep gas fee low and delpyed using proxy server</p>
+
+<p>Contract Source- <Link className="linkmain link" target="_blank" href="https://github.com/thirdweb-dev/contracts">https://github.com/thirdweb-dev/contracts</Link> </p>
+      </div>
 
           {/* <form onSubmit={handleSubmit}>
             
