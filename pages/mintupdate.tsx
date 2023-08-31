@@ -459,9 +459,11 @@ console.log('working');
       <Textarea placeholder='Enter Collection Description' value={description}
           onChange={(e) => setDescription(e.target.value)} mb='10px'/>
 {/* ///////////////////////////start///////////////////// */}
-  <button type='button' onClick={addNewRow}>Add New Row   </button>
-  <button type='button'  onClick={deleteRow}>Delete Row  </button>
-      
+<p>Attributes</p>
+<div className='inlinetable'>
+  <button className='inlinetable btton' type='button' onClick={addNewRow}>Add New Row   </button>
+  <button className='inlinetable btton' type='button'  onClick={deleteRow}>Delete Row  </button>
+   </div>   
   <table id="employee-table">
         <tr>
           <th>Key

@@ -140,7 +140,7 @@ const msg =  'msg';
       >   
 
 
-<Heading  fontSize='22px'>
+<Heading  fontSize='20px'>
 Contracts / Collection              </Heading>
 
 
@@ -187,7 +187,13 @@ Contracts / Collection              </Heading>
 countries.map((country: { id: Key | null | undefined; contract: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; type: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined; }) => (
     <tr key={country.id}>
         {/* <td><a href={'single?c='+country.contract}>{country.contract}</a></td> */}
-        <td><Link className="linkmain link" style={{ color:'#6e56cf'}}  target="_blank" href={'collection/goerli/'+country.contract}>{country.contract}</Link></td>
+        <td><b><Link className="linkmain link" style={{ color:'#6e56cf'}}  target="_blank" href={'collection/goerli/'+country.contract}>
+        {
+          // @ts-ignore: Object is possibly 'null'.
+        country.contract.slice(0, 6) + "..." + country.contract.slice(-4)
+        }
+        
+        </Link></b></td>
         <td>{country.name}</td>
         <td>{country.type == 'nft-collection' &&
         <>
@@ -201,17 +207,17 @@ countries.map((country: { id: Key | null | undefined; contract: string | number 
         }
         
         </td>
-        <td> Goerli</td>
-        <td>   <Link className="linkmain link" style={{ color:'blue'}} href={'mintupdate?c='+country.contract+'&t='+country.type}>
-                                
-                   
-                    Mint
-                  
-                   
-                                
-                   </Link> &nbsp;&nbsp;
+        <td className="chainmain"> 
+         <Link className="linkmain link hover" target="_blank"  href={'https://goerli.etherscan.io/address/'+country.contract}>
+        <img src="https://15065ae3c21e0bff07eaf80b713a6ef0.ipfscdn.io/ipfs/bafybeigzgztdmt3qdt52wuhyrrvpqp5qt4t2uja23wmfhsccqt332ek7da/ethereum/512.png" width={20} /> Goerli
+        </Link>
+        </td>
+        <td>
+          <Link className="linkmain link hover" style={{ color:'#6e56cf!important'}} href={'mintupdate?c='+country.contract+'&t='+country.type}>
+            Mint
+            </Link> &nbsp;&nbsp;
 
-              <Link className="linkmain link" style={{color:'#DDA0DD'}} href={'setting?c='+country.contract+'&t='+country.type}
+              <Link className="linkmain link hover"  href={'setting?c='+country.contract+'&t='+country.type}
   
               >
              
